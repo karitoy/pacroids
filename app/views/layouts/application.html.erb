@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pacroids</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<script type="text/javascript">
+      function playVideo(video)
+      {
+        jwplayer("theplayer").setup({
+          flashplayer: "/flashplayer/player.swf",
+          file: video,
+          autostart: true,
+          skin: "/skins/snel.zip",
+          width: 300,
+          height: 170
+        });
+        return false;
+      }
+		</script>
+	</head>
+	<body>
+		<div id="wholepage">
+			<header id="masthead">
+				<div id="thetitles">
+					<div id="maintitle">Pacquiao is on 'roids!</div>
+					<div id="subtitle">and other rumors about the Pacman</div>
+				</div>
+			</header>
+			<section> 
+				<div id="theplayer">the player content</div>
+				<div id="maincontent">
+					<%= yield %>
+				</div>
+				<nav>
+					<div class="navtitle">Rants</div>
+					<ul>
+						<li><%= link_to_unless_current "Manny Pacquiao is on 'roids!", root_url %></li>
+						<li><%= link_to_unless_current "Money beats Manny any day", "/welcome/moneymanny" %></li>
+						<li><%= link_to_unless_current "Floyd is the face of boxing", "/welcome/floydface" %></li>
+						<li><%= link_to_unless_current "The end of a legend", "/welcome/endoflegend" %></li>
+						<li><%= link_to_unless_current "The fight", "/welcome/thefight" %></li>
+					</ul>
+					<br />
+					<div class="navtitle">Filmed sightings</div>
+					<ul>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">in Washington, D.C.</li>
+						<li onclick="playVideo('http://www.mediafire.com/watch/efy2g8ge58gqp9e/chariceathome.flv');">on training</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">on CNN</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">with Jimmy Kimmel</li>
+					</ul>
+					<br />
+					<div class="navtitle">Fight history</div>
+					<ul>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Margarito</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Clottey</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Cotto</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Hatton</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs de la Hoya</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Diaz</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Marquez 1</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Morales 1</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Barrera 1</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">vs Ledwaba</li>
+						<li onclick="playVideo('https://dl.dropboxusercontent.com/u/49292578/charice/charicelbs1.flv');">Poochie-ao vs Kimbo Splice 1</li>
+					</ul>
+				</nav>
+			</section>
+			<footer>
+				&copy; Copywrong 2010 <%= link_to "Karitoy Online", "http://karitoy.herokuapp.com" %>. 
+				All wrongs reserved, conserved and preserved, all rights discarded.
+			</footer>
+		</div>
+	</body>
+</html>
